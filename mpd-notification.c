@@ -289,11 +289,10 @@ main(int argc, char *argv[])
 
 		if (state == MPD_STATE_PLAY) {
 			song = mpd_run_current_song(connection);
-			if (song == NULL) {
-				continue;
-			}
+			if (song == NULL) continue;
 
 			notification_head = replace_tag_tokens_all(head, song);
+            if (notification_head == NULL) continue;
 			if (verbose) {
 				printf("Head: %s\n", notification_head);
 			}
@@ -302,6 +301,7 @@ main(int argc, char *argv[])
 
 			if (body != NULL) {
 				notification_body = replace_tag_tokens_all(body, song);
+                if (notification_body == NULL) continue;
 				if (verbose) {
 					printf("Body: %s\n", notification_body);
 				}
