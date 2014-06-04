@@ -27,6 +27,7 @@ Dependencies
 
 - libnotify
 - libmpdclient
+- glib2
 
 License
 =======
