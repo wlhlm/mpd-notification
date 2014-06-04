@@ -55,8 +55,8 @@ install: all
 	@install -d ${DESTDIR}${BINDIR} ${DESTDIR}${MANDIR}
 	@install -m 755 ${NAME} ${DESTDIR}${BINDIR}
 	@install -m 644 ${MANSRC} ${DESTDIR}${MANDIR}
-	@sed "s/VERSION/${VERSION}/g" -i ${DESTDIR}${MANDIR}/${MANSRC}
-	@sed "s/PROGNAME/${NAME}/g" -i ${DESTDIR}${MANDIR}/${MANSRC}
+	@sed "s/@@VERSION@@/${VERSION}/g" -i ${DESTDIR}${MANDIR}/${MANSRC}
+	@sed "s/@@PROGNAME@@/${NAME}/g" -i ${DESTDIR}${MANDIR}/${MANSRC}
 
 uninstall:
 	@echo Removing executable file from ${DESTDIR}${BINDIR}
