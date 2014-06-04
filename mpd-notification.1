@@ -1,0 +1,95 @@
+.TH @@PROGNAME@@ 1 @@PROGNAME@@\-@@VERSION@@
+.SH NAME
+@@PROGNAME@@ \- display a notification when MPD plays a song
+.SH SYNOPSIS
+.B @@PROGNAME@@
+.RB [ \-V ]
+.RB [ \-h
+.IR HOST ]
+.RB [ \-p
+.IR PORT ]
+.RB [ \-P
+.IR PASSWORD ]
+.RB [ \-H
+.IR HEADER ]
+.RB [ \-B
+.IR BODY ]
+.SH DESCRIPTION
+.B @@PROGNAME@@
+shows a notification whenever MPD pauses or stops playback or
+when it plays a new track.
+.SH OPTIONS
+.TP
+.B \-V
+prints version information and exits.
+.TP
+.BI \-h " host"
+specify the host address on which MPD is listening. It can be either a hostname
+or a UNIX domain socket. @@PROGNAME@@ ignores the port parameter when the last is
+specified. Default: localhost
+.TP
+.BI \-p " port"
+specify the port on which MPD is listening. Ignored when a UNIX domain
+socket is used. Default: 6600
+.TP
+.BI \-P " password"
+specify password to unlock a locked mpd connection.
+.TP
+.BI \-H " header"
+.IR "format string"
+used as the heading of the notification.
+.TP
+.BI \-B " body"
+.IR "format string"
+that is used as the body text of the notification.
+.SH NOTIFICATION FORMAT
+.B @@PROGNAME@@
+uses
+.IR "format strings"
+for the notification texts specifiable for a mandatory heading part and an
+optional body part. Specific tokens within these strings will be replaced
+by song tags. Every token consits of a preceding '%' symbol and a following
+single character:
+.TP
+.B a
+Artist
+.TP
+.B b
+Album
+.TP
+.B A
+Album Artist
+.TP
+.B t
+Title
+.TP
+.B T
+Track
+.TP
+.B n
+Name
+.TP
+.B g
+Genre
+.TP
+.B d
+Date
+.TP
+.B c
+Composer
+.TP
+.B p
+Performer
+.TP
+.B C
+Comment
+.TP
+.B D
+Disc
+.TP
+.B "%"
+print the '%' character itself
+.SH SEE ALSO
+.IR mpd (1),
+.IR mpc (1)
+
