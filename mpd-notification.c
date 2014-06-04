@@ -295,16 +295,16 @@ main(int argc, char *argv[])
 
 			notification_head = replace_tag_tokens_all(head, song);
 			if (verbose) {
-                printf("Head: %s\n", notification_head);
-            }
+				printf("Head: %s\n", notification_head);
+			}
 			notification_head_escaped = g_markup_escape_text(notification_head, -1);
 			free(notification_head);
 
 			if (body != NULL) {
 				notification_body = replace_tag_tokens_all(body, song);
 				if (verbose) {
-                    printf("Body: %s\n", notification_body);
-                }
+					printf("Body: %s\n", notification_body);
+				}
 				notification_body_escaped = g_markup_escape_text(notification_body, -1);
 				free(notification_body);
 			}
