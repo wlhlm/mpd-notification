@@ -1,9 +1,6 @@
 /* See LICENSE file for licensing details. */
 
 /* Includes */
-#include <mpd/client.h>
-#include <libnotify/notify.h>
-#include <glib.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
@@ -11,6 +8,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <errno.h>
+#include <mpd/client.h>
+#include <libnotify/notify.h>
+#include <glib.h>
 
 /* Macro definitions */
 /* Get array length on compile time */
