@@ -51,7 +51,7 @@ get_mpd_song_tag(const struct mpd_song *song, enum mpd_tag_type type)
 	const char *tag;
 
 	tag = mpd_song_get_tag(song, type, 0);
-	if (!tag) {
+	if (tag == NULL) {
 		tag = strunknown;
 	}
 
