@@ -8,10 +8,10 @@ static unsigned int timeout = 0;
 
 /* Standard notification header. All tokens within it get replaced by song tags.
  * Will be overwritten by the -H commandline option. */
-static const Format *head = "Now Playing";
+static const char *head = "Now Playing";
 /* Standard notification body. All tokens within it get replaced by song tags.
  * Will be overwritten by the -B commandline option. */
-static const Format *body = "%a - %t";
+static const char *body = "%a - %t";
 
 /* Replacement for unknown tags. */
 static const char *strunknown = "(unknown)";

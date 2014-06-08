@@ -16,11 +16,7 @@
 /* Get array length on compile time */
 #define LENGTH(a) (sizeof(a) / sizeof(a[0]))
 
-/* Type declarations */
-/* Format string in which tokens get replaced by song tags. */
-typedef char Format;
-
-/* Configuration */
+/* Compile-time configuration */
 #include "config.h"
 
 /* Global variable definitions */
@@ -37,8 +33,8 @@ static const char *get_mpd_song_tag(const struct mpd_song *song, enum mpd_tag_ty
 static enum mpd_state get_mpd_state(struct mpd_connection *connection);
 static const char *get_tag_token_replacement(const char token, const struct mpd_song *song);
 static NotifyNotification *init_notify(const char *name);
-static size_t get_replaced_format_string_length(const Format *format, const struct mpd_song *song);
-static char *replace_tag_tokens_all(const Format *format, const struct mpd_song *song);
+static size_t get_replaced_format_string_length(const char *format, const struct mpd_song *song);
+static char *replace_tag_tokens_all(const char *format, const struct mpd_song *song);
 static const bool show_notify_notification(NotifyNotification *notification);
 void die(const char *errstr, ...);
 static void usage(const char *name);
@@ -126,7 +122,7 @@ init_notify(const char *name)
 }
 
 static size_t
-get_replaced_format_string_length(const Format *format, const struct mpd_song *song)
+get_replaced_format_string_length(const char *format, const struct mpd_song *song)
 {
 	size_t size = strlen(format);
 
@@ -146,10 +142,10 @@ get_replaced_format_string_length(const Format *format, const struct mpd_song *s
 	return size;
 }
 
-/* Replaces all tokens in a given Format string with the tags of the currently
+/* Replaces all tokens in a given format string with the tags of the currently
  * playing song. */
 static char *
-replace_tag_tokens_all(const Format *format, const struct mpd_song *song)
+replace_tag_tokens_all(const char *format, const struct mpd_song *song)
 {
 	char *format_position = NULL;
 	char *new, *new_end;
