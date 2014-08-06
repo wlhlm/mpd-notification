@@ -17,7 +17,7 @@ and for installation, just run:
 ```
 make install
 ```
-One might want adjust the `PREFIX` directory
+One might want to adjust the `PREFIX` directory:
 ```
 make install PREFIX=/usr
 ```
