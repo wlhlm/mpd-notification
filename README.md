@@ -4,6 +4,9 @@ mpd-notification
 This little program creates a notification everytime `mpd` plays a
 track. A lot of inspiration has been taken from [mpd-notify][notify]
 
+Example notification displayed by [dunst][dunst]:
+![Example Screenshot](mpd-notification-screenshot.png)
+
 Building/Installation
 ---------------------
 
@@ -37,3 +40,4 @@ please see the `LICENSE` file.
 
 
 [notify]: https://github.com/Unia/mpd-notify
+[dunst]: https://github.com/knopwob/dunst
