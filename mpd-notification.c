@@ -288,7 +288,7 @@ main(int argc, char *argv[])
 			if (song == NULL) continue;
 
 			notification_head = replace_tag_tokens_all(head, song);
-			if (notification_head == NULL) continue;
+			if (notification_head == NULL) goto free;
 			if (verbose) {
 				printf("Head: %s\n", notification_head);
 			}
@@ -297,7 +297,7 @@ main(int argc, char *argv[])
 
 			if (body != NULL) {
 				notification_body = replace_tag_tokens_all(body, song);
-				if (notification_body == NULL) continue;
+				if (notification_body == NULL) goto free;
 				if (verbose) {
 					printf("Body: %s\n", notification_body);
 				}
@@ -305,7 +305,6 @@ main(int argc, char *argv[])
 				free(notification_body);
 			}
 
-			mpd_song_free(song);
 
 			notify_notification_update(notification, notification_head_escaped, notification_body_escaped, NULL);
 			if (!show_notify_notification(notification)) {
@@ -314,6 +313,9 @@ main(int argc, char *argv[])
 
 			g_free(notification_head_escaped);
 			g_free(notification_body_escaped);
+
+		free:
+			mpd_song_free(song);
 		}
 	}
 
